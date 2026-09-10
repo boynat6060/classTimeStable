@@ -23,8 +23,9 @@ html {
   /*background-image: linear-gradient(to right, rgb(97, 186, 218), rgb(93, 238, 132));*/
   border-width: 0px;
   animation-name: bgAnimation;
-  animation-duration: 20s;
+  animation-duration: 40s;
   animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 #mainTimeTxt {
