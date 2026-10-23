@@ -5,7 +5,9 @@
 }
 
 body {
-    margin: 0px;
+  margin: 0px;
+  font-family: "Bruno Ace SC", sans-serif;
+  color: white;
 }
 
 html {
@@ -23,9 +25,8 @@ html {
   /*background-image: linear-gradient(to right, rgb(97, 186, 218), rgb(93, 238, 132));*/
   border-width: 0px;
   animation-name: bgAnimation;
-  animation-duration: 40s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
-  animation-timing-function: linear;
 }
 
 #mainTimeTxt {
@@ -84,9 +85,26 @@ html {
   width: 100%;
   margin-top: 2vh;
   overflow: hidden;
+  justify-content: center;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
-.marquee {
-  display: flex;
+#mq1, #mq2, #mq3, #mq4, #mq5, #mq6 {
   width: max-content;
+  animation: scroll 30s linear infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.marquee span {
+    white-space: nowrap;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+@keyframes scroll {
+  0% {transform: translateX(100vw);}
+  100% {transform: translateX(-100vw);}
 }
