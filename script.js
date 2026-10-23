@@ -142,3 +142,103 @@ endOfDayCountDown();
 setInterval(endOfDayCountDown, 900);
 
 document.getElementById("bellSched").textContent = sched;
+
+//shortcuts for marquee elementts
+let mq1 = document.getElementById("mq1");
+let mq2 = document.getElementById("mq2");
+let mq3 = document.getElementById("mq3");
+let mq4 = document.getElementById("mq4");
+let mq5 = document.getElementById("mq5");
+let mq6 = document.getElementById("mq6");
+
+/*
+document.getElementById("mq1").innerText = "This is some text";
+document.getElementById("mq2").innerText = "This is more text";
+document.getElementById("mq3").innerText = "This is even more text";
+*/
+
+//keeps track of time in school
+function timeInSchool() {
+  let dayStart = new Date();
+  dayStart.setHours(8,30,0,0);
+  let now3 = new Date();
+  const timeInSchool = now3 - dayStart;
+
+  const TIShours = Math.floor(timeInSchool / (1000 * 60 * 60));
+  const TISminutes = Math.floor((timeInSchool % (1000 * 60 * 60)) / (1000 * 60));
+
+  console.log("timeInSchool calculated.");
+
+  //if formatting to add an S if needed - next time use dynamic formatting
+  if (timeInSchool <= 0) {
+    mq1.textContent = `You are not in school.`;
+   // mq4.textContent = `You are not in school.`;
+  } else if (TIShours == 1 && TISminutes == 1) {
+    mq1.textContent = `You have been in school for ${TIShours} hour and ${TISminutes} minute.  `
+    //mq4.textContent = `You have been in school for ${TIShours} hour and ${TISminutes} minute.  `
+  } else if (TIShours == 1 && TISminutes != 1) {
+    mq1.textContent = `You have been in school for ${TIShours} hour and ${TISminutes} minutes.  `
+    //mq4.textContent = `You have been in school for ${TIShours} hour and ${TISminutes} minutes.  `
+  } else if (TIShours != 1 && TISminutes == 1) {
+    mq1.textContent = `You have been in school for ${TIShours} hours and ${TISminutes} minute.  `
+    //mq4.textContent = `You have been in school for ${TIShours} hours and ${TISminutes} minute.  `
+  } else {
+    mq1.textContent = `You have been in school for ${TIShours} hours and ${TISminutes} minutes.  `
+    //mq4.textContent = `You have been in school for ${TIShours} hours and ${TISminutes} minutes.  `
+  }
+}
+
+timeInSchool();
+setInterval(timeInSchool, 900);
+
+//counts the days until saturday
+function daysLeftInWeek() {
+  const dayNow = new Date().getDay(); //finds todays day, sunday = 0, monday = 1, etc
+  const daysTillWeekend = 6 - dayNow;
+
+  if (daysTillWeekend == 1) {
+    mq2.textContent = `  There is ${daysTillWeekend} day until the weekend.  `
+    //mq5.textContent = `  There is ${daysTillWeekend} day until the weekend.  `
+  } else if (daysTillWeekend == 0 || daysTillWeekend == 6) {
+    mq2.textContent = `  It is the weekend.  `
+    //mq5.textContent = `  It is the weekend.  `
+  } else {
+    mq2.textContent = `  There are ${daysTillWeekend} days until the weekend.  `
+    //mq5.textContent = `  There are ${daysTillWeekend} days until the weekend.  `
+  }
+}
+
+daysLeftInWeek();
+setInterval(daysLeftInWeek, 60000);
+
+//days until targetDate
+function findDaysUntil(targetDate) {
+  const today = new Date();
+  const future = new Date(targetDate);
+
+  today.setHours(0, 0, 0, 0);
+  future.setHours(0, 0, 0, 0);
+  
+  const milisecondsTill = future - today;
+
+  const daysTill = Math.floor((milisecondsTill / (1000 * 60 * 60 * 24))) ;
+
+  //replaces the called function with daysTill
+  return daysTill;
+}
+
+let upcomingEventName = "Fall Break";
+
+function putDays() {
+  if (findDaysUntil("2026-11-23") <= 1) {
+    mq3.textContent = `  There is 1 day until school lets out!  `
+    //mq5.textContent = `  There is 1 day until school lets out!  `
+  } else {
+    mq3.textContent = `  ${upcomingEventName} starts in ${findDaysUntil("2026-11-23")} days. `
+    //mq5.textContent = `  Summer Break starts in ${findDaysUntil("2027-05-27")} days.!  `
+  }
+}
+
+putDays();
+setInterval(putDays, 60000);
+
