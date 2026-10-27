@@ -9,17 +9,17 @@ A (somewhat) basic clock website that tells me how much longer is left in class,
 - [x] Create styles.css
 - [x] Create script.js
 - [x] Start building basic website framework
-  - [ ] Completed?
+  - [x] Completed?
 - [x] Started styling guidelines
   - [x] Import Font?
-  - [ ] Completed?
+  - [x] Completed?
 - [x] Start programming functionality
   - [x] Basic Clock
   - [x] Set class ending times
     - [x] Variables/constants?
-  - [ ] Text with time left in class
-  - [ ] Minutes left in the day
-  - [ ] Days left in the week
+  - [x] Text with time left in class
+  - [x] Minutes left in the day
+  - [x] Days left in the week
   - [ ] Days left in the year
   - [ ] Completed?
-- [ ] Publish
+- [x] Publish
